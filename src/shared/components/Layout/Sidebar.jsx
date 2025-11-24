@@ -1,3 +1,4 @@
+// src/shared/components/Layout/Sidebar.jsx
 import { NavLink } from "react-router-dom";
 import logo from "../../../assets/crm2-urbany.jpg";
 import {
@@ -16,7 +17,7 @@ import {
   FiSettings,
 } from "react-icons/fi";
 
-import "./Sidebar.css";
+import "./Sidebar.module.css";
 
 export default function Sidebar() {
   const menu = [

@@ -1,4 +1,4 @@
-import DashboardHeader from "./components/DashboardHeader";
+// src/features/dashboard/Dashboard.jsx
 import SalesCard from "./components/SalesCard";
 import TasksCard from "./components/TasksCard";
 import WalletCard from "./components/WalletCard";
@@ -11,8 +11,7 @@ import "./styles/dashboard.css";
 export default function Dashboard() {
   return (
     <div className="dashboard-container">
-      {/* TOP BAR: título, buscador, perfil */}
-      <DashboardHeader />
+
 
       {/* FILA SUPERIOR: ventas, tareas, valor de cartera */}
       <div className="dashboard-top-grid">
