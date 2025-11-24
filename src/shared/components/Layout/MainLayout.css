@@ -1,0 +1,12 @@
+.layout {
+  display: flex;
+  height: 100vh;
+  background: #f8f9fa;
+  font-family: 'Inter', sans-serif;
+}
+
+.layout-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
