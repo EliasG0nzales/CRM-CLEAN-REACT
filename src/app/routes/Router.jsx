@@ -19,7 +19,7 @@ export default function Router() {
   return (
     <MainLayout>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/actividades" element={<Actividades />} />
         <Route path="/tasaciones" element={<Tasaciones />} />
         <Route path="/propiedades" element={<Propiedades />} />

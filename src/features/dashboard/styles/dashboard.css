@@ -1,123 +1,91 @@
-.dashboard-container {
-  width: 100%;
+.dashboard-layout {
   padding: 20px;
+  margin-left: 260px; /* espacio del sidebar */
 }
 
-/* HEADER */
-.dashboard-header {
+.dash-header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
   align-items: center;
-  background: white;
-  border-bottom: 1px solid #e5e5e5;
-  padding: 15px 20px;
 }
 
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+.dash-search {
+  width: 260px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 }
 
-.header-logo {
-  width: 120px;
+.dash-select {
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 }
 
-.header-center {
-  width: 40%;
-}
-
-.search-box {
-  background: #f7f8fa;
-  border-radius: 50px;
-  padding: 8px 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.search-box input {
-  border: none;
-  outline: none;
-  width: 100%;
-  background: transparent;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.premium-btn {
-  color: #2b74ff;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.notif-icon {
-  font-size: 22px;
-}
-
-.profile-box {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.profile-img {
-  width: 40px;
-  border-radius: 50%;
-}
-
-.profile-info .name {
-  font-weight: 600;
-}
-
-.profile-info .role {
-  font-size: 12px;
-  color: grey;
-}
-
-/* GRID SUPERIOR */
 .dashboard-top-grid {
-  margin-top: 20px;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
 }
 
-/* GRID INFERIOR */
 .dashboard-bottom-grid {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: 1.5fr 1.5fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr;
   gap: 20px;
 }
 
-/* CARDS */
 .card {
-  background: white;
-  padding: 20px;
+  border: 1px solid #ddd;
+  padding: 18px;
   border-radius: 12px;
-  border: 1px solid #e5e5e5;
+  background: #fff;
 }
 
-.tabs {
+.sales-tabs, .tabs-row {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   margin: 10px 0;
 }
 
 .tab {
   padding: 6px 14px;
+  background: #f2f2f2;
   border-radius: 6px;
-  background: #f0f0f0;
-  cursor: pointer;
+  border: none;
 }
 
-.tab-active {
-  background: #d0e4ff;
-  color: #2574ff;
-  font-weight: 600;
+.tab.active {
+  background: #dce8ff;
+  color: #2a6df2;
+  font-weight: bold;
+}
+
+.sales-amount, .wallet-amount {
+  font-size: 34px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.chart-bar-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.chart-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bar {
+  width: 24px;
+  background: #1173f2;
+  border-radius: 4px;
+}
+
+.zone-content p {
+  margin: 8px 0;
 }

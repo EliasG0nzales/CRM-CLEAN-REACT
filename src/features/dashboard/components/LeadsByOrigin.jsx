@@ -1,12 +1,19 @@
 export default function LeadsByOrigin() {
   return (
     <div className="card">
-      <h3 className="font-semibold mb-2">¿Cómo obtienes negocios?</h3>
+      <h3>¿Cómo obtienes negocios?</h3>
 
-      <div className="mt-4">
-        <p className="text-gray-600">Negocios creados</p>
-        <p className="text-gray-900 font-semibold">0</p>
+      <select className="dash-select">
+        <option>Último trimestre</option>
+      </select>
+
+      <div className="tabs-row">
+        <button className="tab active">Todos</button>
+        <button className="tab">Portales pagos</button>
+        <button className="tab">Portales gratuitos</button>
       </div>
+
+      <p>Negocios creados</p>
     </div>
   );
 }

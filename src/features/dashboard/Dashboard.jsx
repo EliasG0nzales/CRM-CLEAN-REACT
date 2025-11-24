@@ -5,21 +5,25 @@ import WalletCard from "./components/WalletCard";
 import LeadsByOrigin from "./components/LeadsByOrigin";
 import StageChartCard from "./components/StageChartCard";
 import ZoneSalesCard from "./components/ZoneSalesCard";
+
 import "./styles/dashboard.css";
 
 export default function Dashboard() {
   return (
-    <div className="dashboard">
+    <div className="dashboard-layout">
 
+      {/* HEADER */}
       <DashboardHeader />
 
-      <div className="dashboard-grid-top">
+      {/* GRID SUPERIOR */}
+      <div className="dashboard-top-grid">
         <SalesCard />
         <TasksCard />
         <WalletCard />
       </div>
 
-      <div className="dashboard-grid-bottom">
+      {/* GRID INFERIOR */}
+      <div className="dashboard-bottom-grid">
         <LeadsByOrigin />
         <StageChartCard />
         <ZoneSalesCard />
