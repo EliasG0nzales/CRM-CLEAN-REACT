@@ -1,11 +1,25 @@
-import Sidebar from './Sidebar.jsx';
+import Sidebar from "../components/Sidebar";
+import DashboardHeader from "../components/DashboardHeader";
 
 export default function MainLayout({ children }) {
   return (
-    <div className='flex h-screen bg-gray-100'>
-      <Sidebar />
-      <div className='flex-1 overflow-auto p-6'>
-        {children}
+    <div className="flex min-h-screen bg-[#fafafa]">
+
+      {/* SIDEBAR */}
+      <div className="w-[260px] min-h-screen fixed left-0 top-0 border-r bg-white z-20">
+        <Sidebar />
+      </div>
+
+      {/* CONTENIDO */}
+      <div className="ml-[260px] w-full">
+
+        {/* HEADER REUTILIZABLE */}
+        <DashboardHeader />
+
+        {/* CONTENIDO INTERNO */}
+        <div className="px-10 py-6">
+          {children}
+        </div>
       </div>
     </div>
   );

@@ -1,91 +1,451 @@
-.dashboard-layout {
-  padding: 20px;
-  margin-left: 260px; /* espacio del sidebar */
+/* CONTENEDOR GENERAL DEL DASHBOARD
+   Separa el contenido del borde del layout y le da aire */
+.dashboard-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.dash-header {
+/* ========== HEADER SUPERIOR (BUSCADOR, PERFIL, ETC.) ========== */
+
+.dashboard-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
   align-items: center;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px 20px;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
 }
 
-.dash-search {
-  width: 260px;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.dash-select {
-  padding: 6px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+.header-logo {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
 }
 
-.dashboard-top-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.header-left h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.header-center {
+  width: 40%;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f6f7fb;
+  border-radius: 999px;
+  padding: 8px 14px;
+}
+
+.search-icon {
+  color: #9ca3af;
+  font-size: 16px;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
   gap: 18px;
 }
 
-.dashboard-bottom-grid {
-  margin-top: 20px;
+.premium-btn {
+  color: #2b74ff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.icon-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 999px;
+  border: 2px solid #ffffff;
+}
+
+.profile-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info .name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profile-info .role {
+  font-size: 12px;
+  color: #71717a;
+}
+
+/* ========== GRILLAS PRINCIPALES ========== */
+
+.dashboard-top-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
   gap: 20px;
 }
 
-.card {
-  border: 1px solid #ddd;
-  padding: 18px;
-  border-radius: 12px;
-  background: #fff;
+.dashboard-bottom-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr) minmax(0, 1.2fr);
+  gap: 20px;
 }
 
-.sales-tabs, .tabs-row {
-  display: flex;
+/* ========== TARJETAS GENERALES ========== */
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e5e5;
+  padding: 18px 20px 20px;
+  box-sizing: border-box;
+}
+
+/* Títulos dentro de tarjetas */
+.card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+/* ========== TABS (Facturación / Cantidad de operaciones) ========== */
+
+.tabs {
+  display: inline-flex;
   gap: 10px;
-  margin: 10px 0;
+  margin: 10px 0 6px;
+  padding: 4px;
+  background: #f5f5f7;
+  border-radius: 999px;
+}
+
+.tab,
+.tab-active {
+  border: none;
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  background: transparent;
 }
 
 .tab {
-  padding: 6px 14px;
-  background: #f2f2f2;
-  border-radius: 6px;
-  border: none;
+  color: #4b5563;
 }
 
-.tab.active {
-  background: #dce8ff;
-  color: #2a6df2;
-  font-weight: bold;
+.tab-active {
+  background: #e0ebff;
+  color: #2563eb;
+  font-weight: 600;
 }
 
-.sales-amount, .wallet-amount {
-  font-size: 34px;
-  font-weight: bold;
-  margin-top: 20px;
+/* ========== SELECTORES / DROPDOWNS SIMPLES ========== */
+
+.select-inline {
+  border-radius: 999px;
+  border: 1px solid #e5e5e5;
+  padding: 4px 12px;
+  font-size: 12px;
+  background: #ffffff;
+  outline: none;
 }
 
-.chart-bar-container {
+/* ========== TARJETA "VENTAS CONCRETADAS" (arriba izquierda) ========== */
+
+.sales-card-header-row {
   display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.sales-card-body {
+  margin-top: 8px;
+}
+
+.sales-card-body p {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.sales-card-amount {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+/* ========== TARJETA "MIS TAREAS DE HOY" ========== */
+
+.tasks-list {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.tasks-check {
+  color: #16a34a;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.tasks-link {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #22c55e;
+  cursor: pointer;
+}
+
+/* ========== TARJETA "VALOR DE LA CARTERA" ========== */
+
+.wallet-amount {
+  margin-top: 18px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.wallet-label {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #22c55e;
+}
+
+/* ========== TARJETA "¿CÓMO OBTIENES NEGOCIOS?" ========== */
+
+.leads-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.leads-filter-row {
+  margin-bottom: 10px;
+}
+
+.leads-tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.leads-tab {
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 12px;
+  border: 1px solid #e5e5e5;
+  cursor: pointer;
+  background: #ffffff;
+}
+
+.leads-tab-active {
+  background: #e0ebff;
+  border-color: #2563eb;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+/* ========== TARJETA GRÁFICO "NEGOCIO ABIERTO POR ETAPA" ========== */
+
+.stage-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.chart-legend {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.chart-container {
+  margin-top: 4px;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.chart-bars {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 10px;
 }
 
 .chart-bar {
+  width: 24px;
+  border-radius: 6px 6px 0 0;
+  background: #2f80ff;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* ========== TARJETA "VENTAS POR ZONA" ========== */
+
+.zone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.zone-subheader {
+  font-size: 13px;
+  color: #4b5563;
+  margin-bottom: 12px;
+}
+
+.zone-filters {
   display: flex;
   flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.zone-placeholder {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.sidebar {
+  width: 260px;
+  background: white;
+  border-right: 1px solid #e5e7eb;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+/* LOGO */
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.sidebar-logo {
+  width: 140px;
+  margin: 0 auto;
+}
+
+/* Título "Menu" */
+.sidebar-menu-title {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 10px 0;  
+  text-align: center;     /* 🔥 CENTRA EL TEXTO */
+  font-weight: 500;
+}
+
+
+/* MENÚ PRINCIPAL */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 20px;
+  flex-grow: 1;   /* 🔥 Empuja el footer hacia abajo sin dejar espacios vacíos */
+}
+
+/* ITEMS */
+.sidebar-item {
+  display: flex;
   align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #4b5563;
+  text-decoration: none;
+  transition: 0.2s;
 }
 
-.bar {
-  width: 24px;
-  background: #1173f2;
-  border-radius: 4px;
+.sidebar-item:hover {
+  background: #d9ffe8 !important;   /* Verde suave */
 }
 
-.zone-content p {
-  margin: 8px 0;
+.sidebar-item.active {
+  background: #c0ffd8 !important;   /* Verde pastel */
+  color: #15803d !important;        /* Verde fuerte */
+  font-weight: 600;
+  transform: translateX(4px);
+  transition: 0.3s ease;
+}
+
+.sidebar-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: #16a34a !important;   /* Verde intenso */
+  border-radius: 0 4px 4px 0;
+  animation: slideIn 0.3s ease forwards;
+}
+
+/* FOOTER: CONFIGURACIÓN */
+.sidebar-footer {
+  padding: 10px 20px;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 10px;
 }

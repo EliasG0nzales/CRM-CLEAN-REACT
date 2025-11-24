@@ -1,14 +1,35 @@
+import Tabs from "./Tabs";
+
 export default function SalesCard() {
   return (
     <div className="card">
-      <h3>Ventas concretadas</h3>
+      <div className="sales-card-header-row">
+        <select className="select-inline">
+          <option>USD</option>
+          <option>PEN/S</option>
+        </select>
 
-      <div className="sales-tabs">
-        <button className="tab active">Facturación</button>
-        <button className="tab">Cantidad de operaciones</button>
+        <select className="select-inline">
+          <option>Elige un agente</option>
+          <option>Todos</option>
+          <option>Equipo 1</option>
+        </select>
+
+        <select className="select-inline">
+          <option>Mostrar último trimestre</option>
+          <option>Este mes</option>
+          <option>Este año</option>
+        </select>
       </div>
 
-      <p className="sales-amount">U$D0</p>
+      <h3>Ventas concretadas</h3>
+
+      <Tabs tabs={["Facturación", "Cantidad de operaciones"]} />
+
+      <div className="sales-card-body">
+        <p>Ventas concretadas</p>
+        <div className="sales-card-amount">U$D 0</div>
+      </div>
     </div>
   );
 }

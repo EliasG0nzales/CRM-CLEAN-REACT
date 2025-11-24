@@ -1,24 +1,45 @@
 export default function StageChartCard() {
+  // Alturas aproximadas de las barras (%)
+  const bars = [
+    { label: "Nuevo", value: 70 },
+    { label: "Contactado", value: 55 },
+    { label: "Visita", value: 30 },
+    { label: "En negociación", value: 50 },
+    { label: "Nulo", value: 25 },
+  ];
+
   return (
     <div className="card">
-      <h3>Negocio abierto por etapa</h3>
+      <div className="stage-card-header">
+        <h3>Negocio abierto por etapa</h3>
 
-      <div className="chart-bar-container">
-        {[
-          { etapa: "Nuevo", value: 70 },
-          { etapa: "Contactado", value: 55 },
-          { etapa: "Visita", value: 30 },
-          { etapa: "En Negociación", value: 50 },
-          { etapa: "Nulo", value: 25 },
-        ].map((bar, index) => (
-          <div key={index} className="chart-bar">
+        <div>
+          <label style={{ fontSize: 12, marginRight: 4 }}>Semanal</label>
+          <select className="select-inline">
+            <option>Semanal</option>
+            <option>Mensual</option>
+            <option>Trimestral</option>
+            <option>Anual</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="chart-container">
+        <div className="chart-bars">
+          {bars.map((b) => (
             <div
-              className="bar"
-              style={{ height: bar.value + "%" }}
-            ></div>
-            <label>{bar.etapa}</label>
-          </div>
-        ))}
+              key={b.label}
+              className="chart-bar"
+              style={{ height: `${b.value}%` }}
+            />
+          ))}
+        </div>
+
+        <div className="chart-labels">
+          {bars.map((b) => (
+            <span key={b.label}>{b.label}</span>
+          ))}
+        </div>
       </div>
     </div>
   );

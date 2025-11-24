@@ -38,7 +38,6 @@ export default function Sidebar() {
     <aside className="sidebar">
       <div className="sidebar-header">
         <img src={logo} className="sidebar-logo" alt="CRM Urbany" />
-        <span className="sidebar-title">U R B A N Y</span>
       </div>
 
       <div className="sidebar-menu-title">Menu</div>
