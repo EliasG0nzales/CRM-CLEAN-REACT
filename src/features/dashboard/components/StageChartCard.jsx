@@ -1,25 +1,24 @@
-export default function StageChartCard() {
-  return (
-    <div className="card">
-      <h3>Negocio abierto por etapa</h3>
+import { Bar } from "react-chartjs-2";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement } from "chart.js";
 
-      <div className="chart-bar-container">
-        {[
-          { etapa: "Nuevo", value: 70 },
-          { etapa: "Contactado", value: 55 },
-          { etapa: "Visita", value: 30 },
-          { etapa: "En Negociación", value: 50 },
-          { etapa: "Nulo", value: 25 },
-        ].map((bar, index) => (
-          <div key={index} className="chart-bar">
-            <div
-              className="bar"
-              style={{ height: bar.value + "%" }}
-            ></div>
-            <label>{bar.etapa}</label>
-          </div>
-        ))}
-      </div>
+ChartJS.register(CategoryScale, LinearScale, BarElement);
+
+export default function StageChartCard() {
+  const data = {
+    labels: ["Nuevo", "Contactado", "Visita", "Negociación", "Nulo"],
+    datasets: [
+      {
+        label: "Negocios",
+        backgroundColor: "#2D8CF0",
+        data: [70, 55, 30, 50, 25],
+      },
+    ],
+  };
+
+  return (
+    <div className="bg-white p-5 rounded-xl shadow-sm border">
+      <h3 className="font-semibold mb-4">Negocio abierto por etapa</h3>
+      <Bar data={data} />
     </div>
   );
 }

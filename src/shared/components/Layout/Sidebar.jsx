@@ -1,69 +1,57 @@
-import { NavLink } from "react-router-dom";
-import logo from "../../../assets/crm2-urbany.jpg";
 import {
   FiHome,
-  FiActivity,
+  FiCalendar,
   FiFileText,
-  FiLayers,
-  FiUsers,
   FiMessageSquare,
-  FiShare2,
   FiMap,
   FiTrendingUp,
-  FiUser,
-  FiAlertCircle,
-  FiSend,
   FiSettings,
+  FiUsers,
+  FiSend,
+  FiActivity,
+  FiFolder,
 } from "react-icons/fi";
 
-import "./Sidebar.css";
+import logo from "../../../assets/crm2-urbany.jpg";
+
+const menuItems = [
+  { name: "Dashboard", icon: <FiHome />, path: "/dashboard" },
+  { name: "Actividades", icon: <FiActivity />, path: "/actividades" },
+  { name: "Tasaciones", icon: <FiFileText />, path: "/tasaciones" },
+  { name: "Propiedades", icon: <FiFolder />, path: "/propiedades" },
+  { name: "Negocios", icon: <FiTrendingUp />, path: "/negocios" },
+  { name: "Mensajes", icon: <FiMessageSquare />, path: "/mensajes" },
+  { name: "Redes", icon: <FiSend />, path: "/redes" },
+  { name: "Mapas", icon: <FiMap />, path: "/mapas" },
+  { name: "Emprendimientos", icon: <FiTrendingUp />, path: "/emprendimientos" },
+  { name: "Contactos", icon: <FiUsers />, path: "/contactos" },
+  { name: "Reportes", icon: <FiFileText />, path: "/reportes" },
+  { name: "Enviar comentarios", icon: <FiMessageSquare />, path: "/feedback" },
+  { name: "Configuración", icon: <FiSettings />, path: "/config" },
+];
 
 export default function Sidebar() {
-  const menu = [
-    { icon: <FiHome />, label: "Dashboard", path: "/dashboard" },
-    { icon: <FiActivity />, label: "Actividades", path: "/actividades" },
-    { icon: <FiFileText />, label: "Tasaciones", path: "/tasaciones" },
-    { icon: <FiLayers />, label: "Propiedades", path: "/propiedades" },
-    { icon: <FiTrendingUp />, label: "Negocios", path: "/negocios" },
-    { icon: <FiMessageSquare />, label: "Mensajes", path: "/mensajes" },
-    { icon: <FiShare2 />, label: "Redes", path: "/redes" },
-    { icon: <FiMap />, label: "Mapas", path: "/mapas" },
-    { icon: <FiTrendingUp />, label: "Emprendimientos", path: "/emprendimientos" },
-    { icon: <FiUsers />, label: "Contactos", path: "/contactos" },
-    { icon: <FiAlertCircle />, label: "Reportes", path: "/reportes" },
-    { icon: <FiSend />, label: "Enviar comentarios", path: "/comentarios" },
-  ];
-
   return (
-    <aside className="sidebar">
-      <div className="sidebar-header">
-        <img src={logo} className="sidebar-logo" alt="CRM Urbany" />
-        <span className="sidebar-title">U R B A N Y</span>
+    <aside className="w-64 bg-white border-r h-full p-4 flex flex-col">
+      {/* LOGO */}
+      <div className="mb-6 flex flex-col items-center">
+        <img src={logo} className="w-36 mb-2" />
+        <p className="text-sm text-gray-600 font-medium">Menu</p>
       </div>
 
-      <div className="sidebar-menu-title">Menu</div>
-
-      <nav className="sidebar-menu">
-        {menu.map((item) => (
-          <NavLink
-            key={item.path}
-            to={item.path}
-            className={({ isActive }) =>
-              isActive ? "sidebar-item active" : "sidebar-item"
-            }
+      {/* MENÚ */}
+      <nav className="flex flex-col gap-1">
+        {menuItems.map((item) => (
+          <a
+            key={item.name}
+            href={item.path}
+            className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 transition"
           >
-            {item.icon}
-            <span>{item.label}</span>
-          </NavLink>
+            <span className="text-xl">{item.icon}</span>
+            <span className="text-sm font-medium">{item.name}</span>
+          </a>
         ))}
       </nav>
-
-      <div className="sidebar-footer">
-        <NavLink to="/configuracion" className="sidebar-item">
-          <FiSettings />
-          <span>Configuración</span>
-        </NavLink>
-      </div>
     </aside>
   );
 }
