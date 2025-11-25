@@ -1,0 +1,17 @@
+.searchContainer {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Override input styles if needed specific for search */
+.searchInput :global(.input) {
+    border-radius: var(--radius-full);
+    /* Pill shape for search */
+    background-color: var(--bg-body);
+    border-color: transparent;
+}
+
+.searchInput :global(.input):focus {
+    background-color: var(--bg-card);
+    border-color: var(--border-focus);
+}
